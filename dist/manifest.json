@@ -1,0 +1,43 @@
+{
+  "manifest_version": 3,
+  "name": "小红书·AI助手",
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "diamont1001@gmail.com",
+      "strict_min_version": "109.0"
+    }
+  },
+  "version": "0.1.0",
+  "description": "我的小红书AI管理插件",
+  "host_permissions": [
+    "<all_urls>"
+  ],
+  "permissions": [
+    "storage",
+    "scripting",
+    "activeTab",
+    "tabs"
+  ],
+  "options_page": "pages/options.html",
+  "background": {
+    "service_worker": "pages/background.bundle.js",
+    "type": "module"
+  },
+  "action": {
+    "default_popup": "pages/popup.html",
+    "default_icon": "assets/logo/icon-34.png"
+  },
+  "icons": {
+    "128": "assets/logo/icon-128.png"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "https://www.xiaohongshu.com/*"
+      ],
+      "js": [
+        "pages/content.bundle.js"
+      ]
+    }
+  ]
+}

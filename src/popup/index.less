@@ -1,0 +1,74 @@
+.popup {
+  width: 320px;
+
+  .header {
+    padding: 4px;
+    position: relative;
+    user-select: none;
+
+    img {
+      width: 38px;
+      height: 38px;
+      border-radius: 5px;
+      float: left;
+    }
+    .header-right {
+      margin-left: 45px;
+
+      .title {
+        font-size: 16px;
+        font-weight: 500;
+        padding: 1px 0 4px;
+      }
+      .subtitle {
+        font-size: 12px;
+        color: #999;
+      }
+    }
+    .header-config {
+      position: absolute;
+      right: 8px;
+      top: 8px;
+      cursor: pointer;
+
+      img {
+        width: 20px;
+        height: 20px;
+        transition: transform 0.1s;
+
+        &:hover {
+          transform: scale(1.08);
+        }
+        &:active {
+          transform: scale(0.92);
+        }
+      }
+    }
+  }
+
+  .content {
+    margin-top: 12px;
+
+    .btn {
+      background: red;
+      color: white;
+      padding: 8px 12px;
+      border-radius: 5px;
+      text-align: center;
+      cursor: pointer;
+      font-size: 13px;
+      user-select: none;
+      transition:
+        background-color 0.3s,
+        transform 0.1s;
+
+      &:hover {
+        background: #e60000;
+      }
+      &:active {
+        background: crimson;
+        transform: scale(0.98);
+      }
+    }
+  }
+}

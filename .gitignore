@@ -1,0 +1,12 @@
+*.class
+
+*.log
+project.properties
+project.properties.git
+.git/
+
+dist/pages/
+dist/assets/
+
+node_modules/
+coverage/
