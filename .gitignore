@@ -6,7 +6,6 @@ project.properties.git
 .git/
 
 dist/pages/
-dist/assets/
 
 node_modules/
 coverage/

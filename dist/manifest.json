@@ -7,7 +7,7 @@
       "strict_min_version": "109.0"
     }
   },
-  "version": "0.1.0",
+  "version": "1.0.1",
   "description": "我的小红书AI管理插件",
   "host_permissions": [
     "<all_urls>"
@@ -15,7 +15,6 @@
   "permissions": [
     "storage",
     "scripting",
-    "activeTab",
     "tabs"
   ],
   "options_page": "pages/options.html",

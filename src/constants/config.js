@@ -57,7 +57,7 @@ export const DEFAULT_CONFIG = {
       isSelected: false,
     },
   ],
-  filterEnabled: true,
+  filterEnabled: false,
   minComments: 100,
 };
 

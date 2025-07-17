@@ -44,7 +44,10 @@ async function callAIApi(prompt) {
 
     const data = await response.json();
     // 移除所有 #话题
-    return data.choices[0]?.message?.content?.replace(/#\S+/g, '')?.trim() || '';
+    return {
+      comment: data.choices[0]?.message?.content?.replace(/#\S+/g, '')?.trim() || '',
+      model,
+    };
   } catch (error) {
     console.error('AI API调用失败:', error);
     throw error;
@@ -56,8 +59,8 @@ chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
   console.log('[background]收到消息', request);
   if (request.action === 'generateComment') {
     callAIApi(request.content)
-      .then(comment => {
-        sendResponse({ success: true, content: comment });
+      .then(({ comment, model }) => {
+        sendResponse({ success: true, content: comment, model: model?.name });
       })
       .catch(error => {
         sendResponse({ success: false, error: error.message });
