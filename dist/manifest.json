@@ -7,7 +7,7 @@
       "strict_min_version": "109.0"
     }
   },
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "我的小红书AI管理插件",
   "host_permissions": [
     "https://www.xiaohongshu.com/*"
