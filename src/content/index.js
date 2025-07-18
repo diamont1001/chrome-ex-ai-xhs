@@ -39,7 +39,9 @@ function onAIButtonClick(e) {
       },
       function (response) {
         console.log('AI返回啦', response);
-        if (response?.content) {
+        if (response?.error) {
+          alert(response.error);
+        } else if (response?.content) {
           document.getElementById('content-textarea').textContent = response.content.replace(
             /^["“]|["”]$/g,
             ''
@@ -83,6 +85,8 @@ function appendAIButton() {
           ai_btn.style.cursor = 'pointer';
           ai_btn.style.padding = '12px';
           ai_btn.style.marginLeft = '16px';
+          ai_btn.style.fontWeight = 'bold';
+          ai_btn.style.color = '#ff2e4d'; // 小红书红色
           ai_btn.className = 'ai';
           buttons.append(ai_btn);
         }

@@ -10,6 +10,9 @@ async function callAIApi(prompt) {
   try {
     // 取一个可用模型
     const model = await getAvailableModel();
+    if (!model) {
+      return Promise.reject(new Error('没有可用模型'));
+    }
     console.log('[callAIApi]model', model);
     const question = [
       '请根据以下小红书帖子内容生成一条合适的评论（不要带任何 #话题 标签）:\n\n',
