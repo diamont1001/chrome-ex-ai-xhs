@@ -21,6 +21,9 @@ async function callAIApi(prompt) {
       `帖子文字内容如下：`,
       title ? `${title}\n${content}\n` : content,
     ].join('\n');
+    const imagesContent = images.map(image => {
+      return { type: 'image_url', image_url: { url: image } };
+    });
 
     const response = await fetch(model.url, {
       method: 'POST',
@@ -37,18 +40,21 @@ async function callAIApi(prompt) {
           },
           {
             role: 'user',
-            content: question,
+            content: [...imagesContent, { type: 'text', text: question }],
           },
         ],
         temperature: 0.7,
-        max_tokens: 4096,
+        max_tokens: 4096, // 0 ~ 8192
       }),
     });
 
     const data = await response.json();
+    if (data.error) {
+      throw new Error(data.error.message);
+    }
     // 移除所有 #话题
     return {
-      comment: data.choices[0]?.message?.content?.replace(/#\S+/g, '')?.trim() || '',
+      comment: data.choices?.[0]?.message?.content?.replace(/#\S+/g, '')?.trim() || '',
       model,
     };
   } catch (error) {

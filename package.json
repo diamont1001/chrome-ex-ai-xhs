@@ -1,6 +1,6 @@
 {
   "name": "chrome-ex-ai-xhs",
-  "version": "1.0.0",
+  "version": "1.0.5",
   "description": "我的小红书AI助手",
   "main": "index.js",
   "scripts": {
